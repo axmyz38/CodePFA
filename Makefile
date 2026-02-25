@@ -2,6 +2,8 @@
 
 CC = gcc
 CFLAGS = -Wall -Wextra -lm
+OBJ = integration.o pfa.o test_integration.o test_pfa.o
+PROG = test_pfa test_integration
 
 all: integration pfa
 

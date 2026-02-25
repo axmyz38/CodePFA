@@ -106,10 +106,10 @@ double integrate(double (*f)(double), double a, double b, int N, QuadFormula* qf
   {
     return 0.0;
   }
-  double sum = 0;
-  double ai = 0;
-  double bi = 0;
-  double result = 0;
+  double sum = 0.0;
+  double ai = 0.0;
+  double bi = 0.0;
+  double result = 0.0;
   for (int i = 0; i <= N-1; i++)
   {
     ai = a+i*(b-a)/N;
@@ -120,19 +120,22 @@ double integrate(double (*f)(double), double a, double b, int N, QuadFormula* qf
      
     }
     result += (bi-ai) * sum;
-    sum = 0;
+    sum = 0.0;
   }
-  
-
   return result;
 }
 
-	
+
 
 
 double integrate_dx(double (*f)(double), double a, double b, double dx, QuadFormula* qf)
 {
-  return 0.0;
+  if (f == NULL)
+    return 0.0;
+  int N = round(fabs(b-a)/dx);
+  if (N==0)
+    N=1;
+  return integrate(f, a, b, N, qf); 
 }
 
 
