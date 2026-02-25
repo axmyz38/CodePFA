@@ -16,7 +16,10 @@
 */
 bool init_integration(char* quadrature, double dt)
 { 
-  return true;
+	if (!setQuadFormula (&pfaQF, quadrature))
+		return False;
+	pfa_dt = dt;
+	return true;
 }
 
 
@@ -30,7 +33,7 @@ double phi(double x)
 /* Cumulative distribution function of the normal distribution */
 double PHI(double x)
 {
-  return 0.0;
+  return 1.0/2.0 + integration_dx(phi(x), 0, x, 0.1, pfaQF);
 }
 
 /* =====================================
