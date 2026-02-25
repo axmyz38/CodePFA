@@ -26,7 +26,7 @@ void error(int *arr, char **arr2, double (*f)(double), double a , double b,int s
 printf("--------\nN = %d :\n",arr[y]);
     printf("approx = %f | exact = %f\n", integrate(f, a, b, arr[y], &qf), sin(b)-sin(a));
   printf("difference entre le modele et la solution connue a 10 puissance -10: \n %.10f\n", fabs(integrate(f, a, b, arr[y], &qf)-(sin(b)-sin(a))));
-    printf("ln(N)=%f | ln(erreur)=%f\n", log(arr[i]), log(fabs(integrate(f, a, b, arr[y], &qf)-(sin(b)-sin(a)))));
+    printf("ln(N)=%f | ln(erreur)=%f\n", log(arr[y]), log(fabs(integrate(f, a, b, arr[y], &qf)-(sin(b)-sin(a)))));
 }
 }
 }
