@@ -15,7 +15,7 @@ bool setQuadFormula(QuadFormula* qf, char* name)
 		strcpy(qf -> name , "right");
 		qf -> n = 1;
 		qf -> w[0] = 1.0;
-		qf -> x[0] = 0.0;
+		qf -> x[0] = 1.0;
 		return true;
 	}
 	if(strcmp(name,"left")==0)

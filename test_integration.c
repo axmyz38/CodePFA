@@ -16,7 +16,7 @@ double f(double t)
 void error(int *arr, char **arr2, double (*f)(double), double a , double b,int size)
 {
   QuadFormula qf;
-  printf("a = %d, b = %d\n", a, b);
+  printf("a = %f, b = %f\n", a, b);
 	for (int i = 0; i < 7; i++)
   {
 	  setQuadFormula(&qf, arr2[i]);
