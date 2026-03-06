@@ -44,10 +44,9 @@ double PHI(double x)
 */
 double optionPrice(Option* option)
 {
-  double z0=(log(option->K/option->S0) - (option->mu-(option->sig*option->sig/2)*option->T))/(option->sig*sqrt(option->T));
-
-  double C = option->S0*exp(option->mu*option->T)*PHI(option->sig*sqrt(option->T)-z0)-option->K*PHI(-z0);
-  double P = option->K*PHI(z0)-option->S0*exp(option->mu*option->T)*PHI(z0-option->sig*sqrt(option->T));
+  double z0 = (log(option->K / option->S0) - (option->mu - option->sig * option->sig / 2) * option->T) / (option->sig * sqrt(option->T));
+  double C = option->S0 * exp(option->mu * option->T) * PHI(option->sig * sqrt(option->T) - z0) - option->K * PHI(-z0);
+  double P = option->K * PHI(z0) - option->S0 * exp(option->mu * option->T) * PHI(z0 - option->sig * sqrt(option->T));
 
   if (option->type == CALL)
     return C;
@@ -84,8 +83,8 @@ double clientCDF_X(InsuredClient* client, double x)
     return 0.0;
   }
   else{
-    double tacklarbitdanlcul = PHI((log(x)-client->m)/client->s);
-    return tacklarbitdanlcul;
+    double tacklar = PHI((log(x)-client->m)/client->s);
+    return tacklar;
   }
 }
 
@@ -129,7 +128,7 @@ double clientCDF_X1X2(InsuredClient* client, double x)
 {
   
   global_client = client;
-  if (global_x<=0)
+  if (x<=0)
       return 0;
   return integrate_dx(integrand_CDF_X1X2, 0, x, pfa_dt, &pfaQF );
 }
